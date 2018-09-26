@@ -1,0 +1,60 @@
+<!-- 脚页 -->
+<div class="footer clearfix">
+    <div class="confoont clearfix w1200">
+
+        <div class="footer_wrap clearfix">
+            <!-- 左边 -->
+            <div class="left_hi clearfix">
+                {$set['bottomlogo']}
+                <img src="{$set['bottomlogo']}" class="img_icxt">
+                <div class="div_iad clearfix">
+                    <p class="p_hetle">{$set['addresscn']}</p>
+                    <p class="p_noou">{$set['addressen']}</p>
+                </div>
+                <div class="wwwcom clearfix">
+                    <p class="spanai">{$set['shoplink']}</p>
+                    <p class="foKter">{$set['mobile']}</p>
+                </div>
+            </div>
+            <!-- 右边 -->
+            <div class="footerrie clearfix">
+                <!-- 右边上边 -->
+                <div class="divul_li clearfix">
+                    <ul class="clearfix">
+                        <li><a href="http://{$_SERVER['HTTP_HOST']}" class="on">首页</a></li>
+                        <li><a href="{:url('index/banner/index')}">广告联盟</a></li>
+                        <li><a href="{:url('index/mazhu/index')}">码主联盟</a></li>
+                        <li><a href="{:url('index/kehu/index')}">客户案例</a></li>
+                        <li><a href="{:url('index/news/index')}">新闻动态</a></li>
+                        <li><a href="{:url('index/my/index')}">关于我们</a></li>
+                        <li><a href="http://www.yijia198.com/app/index.php?i=2&c=entry&m=ice_shop&do=pc"  target="_blank">亿家供应</a></li>
+                    </ul>
+                </div>
+
+                <!-- 右右下边 -->
+                <div class="links clearfix">
+                    <p class="pp">友情链接：</p>
+                    <ul class="clearfix">
+                        {foreach name="links" item="d"}
+                        <li><a href="http://www.mkzg.cn">国酷集团</a></li>
+                        {/foreach}
+                        <li><a href="http://{$_SERVER['HTTP_HOST']}">返回主页</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 底部中间 -->
+        <div class="cOMbter">
+            <!-- <p class="pCp">一零一广告</p> -->
+            <p class="pGp">{$set['icp']}</p>
+            <p class="pGp">举报电话：{$set['tel']}，版权所有，违者必究。</p>
+        </div>
+        <!-- 关注微信公众号 -->
+        <div class="erweima">
+            <p>关注微信公众号</p>
+            <div class="er"><img src="{$set['qrcode']}" style="width:100px;height:100px;"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

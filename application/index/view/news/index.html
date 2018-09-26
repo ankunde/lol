@@ -1,0 +1,36 @@
+{include file="index/herder" }
+<div class="classIFication clearfix">
+    <div class="toSort w1200">
+        <div class="digEStab">
+            <span class="stging">分类：</span>
+            <div class="aAiac" id="aAiac">
+                {foreach name="type" item="d"}
+                <a href="{:url('index/news/index',array('pid'=>$d['id']))}" {if $pid == $d['id']} class="on" {/if}>{$d['name']}</a>
+                {/foreach}
+            </div>
+        </div>
+        <div class="sortation clearfix">
+            <div class="category">
+                <div class="modelrm oui" style="display:block">
+                    <div class="bodylist">
+                        <ul>
+                            {foreach name="news" item="d"}
+                            <li class="clearfix">
+                                <i class="clearfix">•</i>
+                                <a href="{:url('index/news/index',array('pid'=>$d['type'],'id'=>$d['id']))}">
+                                    <span>{$d['title']}</span>
+                                    <small> > </small>
+                                </a>
+                            </li>
+                            {/foreach}
+                        </ul>
+                    </div>
+                    <div class="orderight">
+                        {$item['miss']}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{include file="index/footer" }

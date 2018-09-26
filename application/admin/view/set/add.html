@@ -1,0 +1,45 @@
+{include file="common/_herder" }
+<body class="body">
+<form class="layui-form" action="" id="form">
+    <input type="hidden" name="id" value="{$item['id']}">
+    <div class="layui-form-item">
+        <label class="layui-form-label">网站名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" value="{$item['name']}"  placeholder="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">网站连接</label>
+        <div class="layui-input-block">
+            <input type="text" name="linkurl" value="{$item['linkurl']}" placeholder="请输入内容" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <button class="layui-btn" id="submit-btn" type="button">保存</button>
+        </div>
+    </div>
+</form>
+<script>
+    $(function () {
+        $("#submit-btn").click(function () {
+            $("#form").ajaxSubmit({
+                type:'post',
+                url:"{:url('admin/set/add')}",
+                data:{},
+                dataType:"json",
+                success:function (ret) {
+                    layer.msg(ret.msg);
+                    if (ret.code==1){
+                        setTimeout(function () {
+                            window.location.href = "{:url('admin/set/links')}";
+                        },2000);
+                    }
+                }
+            });
+        })
+    })
+</script>
+</body>
+</html>

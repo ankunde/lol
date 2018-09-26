@@ -1,0 +1,137 @@
+{include file="index/herder" }
+<div class="mdMAain clearfix">
+    <div class="sidemenu clearfix">
+        <?php $a=1;?>
+        {foreach name="list" item="d"}
+        {if $d['type']==1 && $a==1}
+        <div class="codivbt clearfix">
+            <div class="righttitner clearfix">
+                <p class="pttavwa">{$d['title']}</p>
+                <div class="london">
+                    {$d['miss']}
+                </div>
+            </div>
+        </div>
+        <?php $a=2;?>
+        {/if}
+        {/foreach}
+
+        <?php $b=1;?>
+        {foreach name="list" item="d"}
+        {if $d['type']==2 && $b==1}
+        <div class="fixtion">
+            <div class="clearfix w1200">
+                <div class="righttitner2">
+                    <p class="pttavwa">{$d['title']}</p>
+                    <div class="london">
+                        {$d['miss']}
+                    </div>
+                </div>
+                <div class="lnity"><img src="{$d['thumb']}"></div>
+            </div>
+        </div>
+        <?php $b=2;?>
+        {/if}
+        {/foreach}
+
+        <?php $c=1;?>
+        {foreach name="list" item="d"}
+        {if $d['type']==3 && $c==1}
+        <div class="righttitner3 clearfix">
+            <div class="w1200">
+                <div class="leftgiui"><img src="{$d['thumb']}"></div>
+                <div class="hifter">
+                    <p class="pttavwa">{$d['title']}</p>
+                    <div class="london">
+                        {$d['miss']}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php $c=2;?>
+        {/if}
+        {/foreach}
+
+        <?php $s=1;?>
+        {foreach name="list" item="d"}
+        {if $d['type']==4 && $s==1}
+        <div class="righttitner4 clearfix">
+            <div class="w1200">
+                <div class="loging">
+                    <p class="pttavwa">{$d['title']}</p>
+                    <div class="london">
+                        {$d['miss']}
+                    </div>
+                </div>
+                <div class="imgktyig"><img src="{$d['thumb']}"></div>
+            </div>
+        </div>
+        <?php $s=2;?>
+        {/if}
+        {/foreach}
+
+
+        <div class="righttitner5 clearfix">
+            <div class="w1200">
+                <div class="lnnner">
+                    <p class="hutadyi">一零一文化</p>
+                </div>
+                <div class="ndonhtyi">
+                    <p class="les5">“一零一”——多一分努力、多一分满意！</p>
+                    <p class="les5">“一零一”——百尺竿头更进一步！</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="righttitner6 clearfix">
+            <div class="w1200">
+                <div class="dids">
+                    <p class="hutader">一零一经营理念</p>
+                </div>
+                <div class="ndonhter">
+                    <div class="contyun">
+                        <?php $e=1;?>
+                        {foreach name="list" item="d"}
+                        {if $d['type']==5}
+                        {if $e==1}
+                        <p class="les6" style="margin-left:104px;">{$d['title']}</p>
+                        {/if}
+                        {if $e==1}
+                        <p class="les6" style="margin-left:136px;">{$d['title']}</p>
+                        {/if}
+                        {if $e==1}
+                        <p class="les6" style="margin-left:104px;">{$d['title']}</p>
+                        {/if}
+                        <?php $e++;?>
+                        {/if}
+                        {/foreach}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="righttitner clearfix demo">
+            <p class="pttavwa">公司历程</p>
+            <div class="history">
+                <ul class="list">
+                    {foreach name="list" item="d"}
+                    {if $d['type']==5}
+                    <li class="clearfix">
+                        <p class="timer" style="padding-left: 100px;line-height: 38px;"><span class="tet">{$d['time']}</span></p>
+                        <i></i>
+                        <p class="p">{$d['title']}</p>
+                        <p class="p">{:strip_tags($d['miss'])}</p>
+                    </li>
+                    {/if}
+                    {/foreach}
+
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{include file="index/footer" }

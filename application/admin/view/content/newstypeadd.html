@@ -1,0 +1,46 @@
+{include file="common/_herder" }
+<body class="body">
+<form class="layui-form" action="" id="form">
+    <input type="hidden" name="id" value="{$item['id']}">
+    <div class="layui-form-item">
+        <label class="layui-form-label">排序</label>
+        <div class="layui-input-block">
+            <input type="text" name="orderby" value="{$item['orderby']}"  placeholder="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" value="{$item['name']}"  placeholder="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <button class="layui-btn" id="submit-btn" type="button">保存</button>
+        </div>
+    </div>
+</form>
+<script>
+    $(function () {
+        $('.layui-form input[type=radio]').show();
+        $("#submit-btn").click(function () {
+            $("#form").ajaxSubmit({
+                type:'post',
+                url:"{:url('admin/content/newstypeadd')}",
+                data:{},
+                dataType:"json",
+                success:function (ret) {
+                    layer.msg(ret.msg);
+                    if (ret.code==1){
+                        setTimeout(function () {
+                            window.location.href = "{:url('admin/content/newstype')}";
+                        },2000);
+                    }
+                }
+            });
+        })
+    })
+</script>
+</body>
+</html>

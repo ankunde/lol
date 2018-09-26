@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{$set['title']}</title>
+    <meta name="keywords" content="{$set['keywords']}">
+    <meta name="description" content="{$set['description']}">
+    <link rel="stylesheet" type="text/css" href="/public/static/web/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/public/static/web/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/public/static/web/css/style.css">
+    <script type="text/javascript" src="/public/static/web/js/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="/public/static/web/js/banner.js"></script>
+    <script type="text/javascript" src="/public/static/web/js/fkg.js"></script>
+    <script type="text/javascript" src="/public/static/web/js/common.js"></script>
+    <script type="text/javascript" src="/public/static/web/js/index.js"></script>
+</head>
+<body>
+<!-- top -->
+<div class="top_bar clearfix" id="top_bar">
+    <div class="w1200">
+        <div class="ptopdivs">
+            <ul class="ul_left">
+                {foreach name="links" item="d"}
+                <li><a href="{$d['linkurl']}">{$d['name']}</a></li>
+                {/foreach}
+            </ul>
+        </div>
+        <div class="btopdivd">
+            <ul class="ul_right">
+                <li><a href="http://{$_SERVER['HTTP_HOST']}">返回主页</a></li>
+                <li><a href="http://www.mazhu101.com">登录</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- header -->
+<div class="header">
+    <div class="header_wrap w1200">
+        <div class="logo"><a href="index.html"><img src="{$set['toplogo']}"></a></div>
+        <div class="ul_het">
+            <ul>
+                <li><a href="http://{$_SERVER['HTTP_HOST']}" {if $ispage == 1} class="active" {/if}>首页</a></li>
+                <li><a href="{:url('index/banner/index')}" {if $ispage == 2} class="active" {/if}>广告联盟</a></li>
+                <li><a href="{:url('index/mazhu/index')}" {if $ispage == 3} class="active" {/if}>码主联盟</a></li>
+                <li><a href="{:url('index/kehu/index')}" {if $ispage == 4} class="active" {/if}>客户案例</a></li>
+                <li><a href="{:url('index/news/index')}" {if $ispage == 5} class="active" {/if}>新闻动态</a></li>
+                <li><a href="{:url('index/my/index')}" {if $ispage == 6} class="active" {/if}>关于我们</a></li>
+                <li><a href="http://www.yijia198.com/app/index.php?i=2&c=entry&m=ice_shop&do=pc"  target="_blank">亿家供应</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+{include file="common/_herder" }
+<body class="body">
+<div class="my-btn-box">
+    <span class="fl">
+        <a href="{:url('admin/member/save')}" class="layui-btn btn-add btn-default" id="btn-add">添加</a>
+    </span>
+</div>
+<div>
+    <table class="layui-table" lay-skin="line">
+        <colgroup>
+            <col width="150">
+            <col width="200">
+            <col>
+            <col width="150">
+            <col width="150">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>昵称</th>
+            <th>登录名</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="admin" id="vo"}
+        <tr>
+            <td>{$vo.id}</td>
+            <td>{$vo.nickname}</td>
+            <td>{$vo.username}</td>
+            <td>
+                <a class="layui-btn layui-btn-mini layui-btn-normal" href="{:url('admin/member/edit',['id'=>$vo.id])}" lay-event="edit">编辑</a>
+                <a class="layui-btn layui-btn-mini layui-btn-danger" href="{:url('admin/member/del',['id'=>$vo.id])}" lay-event="del">删除</a>
+            </td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

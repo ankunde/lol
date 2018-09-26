@@ -1,0 +1,19 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2018/9/19
+ * Time: 21:19
+ */
+
+namespace app\admin\model;
+
+
+use think\Model;
+
+class About extends Model
+{
+    protected $name = 'about';
+    protected  $autoWriteTimestamp = false;
+    protected $updateTime = false;
+}

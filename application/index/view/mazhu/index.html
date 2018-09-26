@@ -1,0 +1,126 @@
+{include file="index/herder" }
+<!-- banner -->
+<div id="focus-banner">
+    <ul id="focus-banner-list">
+        {foreach name="banner" item="d"}
+        <li> <a href="{if empty($d['linkurl'])}javascript:void(0);{else /}{$d['linkurl']}{/if}" class="focus-banner-img"><img src="{$d['thumb']}" alt=""> </a>
+        </li>
+        {/foreach}
+    </ul>
+    <a href="javascript:;" id="next-img" class="focus-handle"></a> <a href="javascript:;" id="prev-img" class="focus-handle"></a>
+    <ul id="focus-bubble">
+    </ul>
+</div>
+<div class="fk_editor clearfix">
+    <div class="w1200 menubtg">
+        <h3 class="making">码主投广告</h3>
+        <ul class="ulnit clearfix">
+            {foreach name="lists" item="d"}
+            {if $d['type']==1}
+            <li>
+                <div class="text_o">{$d['title']}</div>
+                <p class="ptxton">{$d['miss']}</p>
+            </li>
+            {/if}
+            {/foreach}
+        </ul>
+    </div>
+</div>
+<?php $x = 1;?>
+{foreach name="lists" item="d"}
+{if $d['type']==2 && $x == 1 }
+<?php $thumb = str_replace('\\','/',$d['thumb']);$x = 2; ?>
+<div class="main_werap" style="background: url('{$thumb}') no-repeat center;">
+    <div class="reseve_main w1200">
+        <div class="simpleText">
+            <p class="avpde">{$d['miss']}</p>
+        </div>
+    </div>
+</div>
+{/if}
+{/foreach}
+<div class="directional">
+    <div class="region w1200">
+        <?php $i=0;?>
+        {foreach name="lists" key="k" item="d"}
+        {if $d['type']==3}
+        {if $i%2==0}
+        <div class="placevt clearfix">
+            <div class="div_in1"><img src="{$d['thumb']}"></div>
+            <div class="bgthce">
+                <p class="pin1">{$d['title']}：</p>
+                <p class="kude">{$d['miss']}</p>
+            </div>
+        </div>
+        {else /}
+        <div class="crowds clearfix">
+            <div class="rculat">
+                <p class="put1">{$d['title']}：</p>
+                <p class="cbth">{$d['miss']}</p>
+            </div>
+            <div class="pawnbroker"><img src="{$d['thumb']}"></div>
+        </div>
+        {/if}
+        <?php $i++;?>
+        {/if}
+        {/foreach}
+    </div>
+</div>
+<div class="banner_Sept clearfix">
+    <div class="tuseDay w1200 clearfix">
+
+        <div class="banner_Day clearfix">
+            <ul>
+                {foreach name="lists" key="k" item="d"}
+                {if $d['type']==4}
+                <li>
+                    <img src="{$d['thumb']}">
+                </li>
+                {/if}
+                {/foreach}
+            </ul>
+        </div>
+
+        <div class="bacnth" style="background:url(/public/static/web/images/fkg/seq_03.png) no-repeat;width:216px;height:483px;display:block;float:left;margin-top:188px;"></div>
+
+        <div class="panicon">
+            <?php $s = 1;?>
+            {foreach name="lists" key="k" item="d"}
+            {if $d['type']==4}
+            {if $s==1}
+            <div class="psds {if empty($k)} on {/if}" style="margin-left:-114px;margin-top:18px;">
+                <p class="neterd">{$d['title']}</p>
+                <p class="mabt">{$d['miss']}</p>
+            </div>
+            {/if}
+            {if $s==2}
+            <div class="psds {if empty($k)} on {/if}" style="margin-left:-28px;margin-top:35px;">
+                <p class="neterd">{$d['title']}</p>
+                <p class="mabt">{$d['miss']}</p>
+            </div>
+            {/if}
+            {if $s==3}
+            <div class="psds {if empty($k)} on {/if}"  style="margin-top:70px;margin-left:10px;">
+                <p class="neterd">{$d['title']}</p>
+                <p class="mabt">{$d['miss']}</p>
+            </div>
+            {/if}
+            {if $s==4}
+            <div class="psds {if empty($k)} on {/if}"  style="margin-top:78px;margin-left:-26px;">
+                <p class="neterd">{$d['title']}</p>
+                <p class="mabt">{$d['miss']}</p>
+            </div>
+            {/if}
+            {if $s==5}
+            <div class="psds {if empty($k)} on {/if}"  style="margin-top:40px;margin-left:-112px;">
+                <p class="neterd">{$d['title']}</p>
+                <p class="mabt">{$d['miss']}</p>
+            </div>
+            {/if}
+            <?php $s ++;?>
+            {/if}
+            {/foreach}
+        </div>
+    </div>
+</div>
+{include file="index/footer" }

@@ -1,0 +1,39 @@
+{include file="common/_herder"}
+<body>
+<div class="login-main">
+    <header class="layui-elip">后台登录</header>
+    <form class="layui-form" id="form">
+        <div class="layui-input-inline">
+            <input type="text" name="username" required lay-verify="required" placeholder="用户名" autocomplete="off"
+                   class="layui-input">
+        </div>
+        <div class="layui-input-inline">
+            <input type="password" name="password" required lay-verify="required" placeholder="密码" autocomplete="off"
+                   class="layui-input">
+        </div>
+        <div class="layui-input-inline login-btn">
+            <button type="button" class="layui-btn" id="submit-btn">登录</button>
+        </div>
+        <hr/>
+    </form>
+</div>
+<script>
+    $("#submit-btn").click(function () {
+        $("#form").ajaxSubmit({
+            type:'post',
+            url:"{:url('admin/login/index')}",
+            data:{},
+            dataType:"json",
+            success:function (data) {
+                layer.msg(data.msg);
+                if(data.code){
+                    setTimeout(function () {
+                        window.location.href = "{:url('admin/index/index')}";
+                    },2000);
+                }
+            }
+        })
+    })
+</script>
+</body>
+</html>

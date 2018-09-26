@@ -1,0 +1,52 @@
+{include file="common/_herder"}
+<body class="body">
+
+<form class="layui-form layui-form-pane" id="form">
+    <div class="layui-form-item">
+        <label class="layui-form-label">昵称</label>
+        <div class="layui-input-inline">
+            <input type="text" name="nickname" lay-verify="required" placeholder="请输入" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">管理员名</label>
+
+        <div class="layui-input-inline">
+            <input type="text" name="username" lay-verify="required" placeholder="请输入" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">密码</label>
+
+        <div class="layui-input-inline">
+            <input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-form-mid layui-word-aux">请务必记住密码</div>
+    </div>
+    <div class="layui-form-item">
+        <button type="button" id="submit-btn" class="layui-btn" lay-submit="" lay-filter="sub">提交</button>
+    </div>
+</form>
+
+<script type="text/javascript">
+    $("#submit-btn").click(function () {
+        $("#form").ajaxSubmit({
+            type:'post',
+            url:"{:url('admin/member/save')}",
+            data:{},
+            dataType:"json",
+            success:function (data) {
+                layer.msg(data.msg);
+                if(data.code){
+                    setTimeout(function () {
+                        window.location.href = "{:url('admin/member/index')}";
+                    },2000)
+                }
+            }
+        })
+    })
+</script>
+</body>
+</html>

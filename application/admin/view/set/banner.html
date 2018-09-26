@@ -1,0 +1,97 @@
+{include file="common/_herder" }
+<style>
+    .bg-color{
+        background: #ccc;
+        color: #333;
+    }
+</style>
+<body class="body">
+<div class="my-btn-box">
+    <span class="fl">
+        <a class="layui-btn btn-add btn-default" href="{:url('admin/set/banneradd')}">添加</a>
+    </span>
+</div>
+<div>
+    <table class="layui-table" lay-skin="line">
+        <colgroup>
+            <col width="150">
+            <col width="150">
+            <col width="300">
+            <col width="150">
+            <col width="150">
+            <col width="150">
+            <col width="150">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>名称</th>
+            <th>图片</th>
+            <th>链接</th>
+            <th>位置</th>
+            <th>时间</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach name="lists" item="d"}
+        <tr>
+            <td>{$d['id']}</td>
+            <td>{$d['name']}</td>
+            <td><img src="{$d['thumb']}" style="width: 260px;height: 100px;display: block;max-width: 300px;"></td>
+            <td>{$d['linkurl']}</td>
+            <td>{:getBanner($d['position'])}</td>
+            <td>{:date('Y-m-d H:i:s',$d['createtime'])}</td>
+            <td>
+                <a class="layui-btn layui-btn-mini layui-btn-normal {if $d.status == 0} bg-color {/if} " href="javascript:;" onclick="changeStatus('{$d.id}','{$d.status}',this)" lay-event="edit">{if $d.status == 0}启用{else /}禁用{/if}</a>
+            </td>
+            <td>
+                <a class="layui-btn layui-btn-mini layui-btn-normal" href="{:url('admin/set/banneradd',array('id'=>$d['id']))}" lay-event="edit">编辑</a>
+                <a class="layui-btn layui-btn-mini layui-btn-danger" href="{:url('admin/set/bannerdel',array('id'=>$d['id']))}" lay-event="del">删除</a>
+            </td>
+        </tr>
+        {/foreach}
+        </tbody>
+    </table>
+    <div class="page-box">
+        {$pager}
+    </div>
+</div>
+<script>
+    function changeStatus(id,status,obj) {
+        if (Number(status)==1){
+            status = 0;
+        }
+        else{
+            status = 1;
+        }
+        $.ajax({
+            type:'get',
+            url:"{:url('admin/set/changeStatus')}",
+            data:{
+                id:id,
+                status:status
+            },
+            dataType:"json",
+            success:function (ret) {
+                layer.msg(ret.msg);
+                if(ret.code==1){
+                    if (status == 1){
+                        $(obj).removeClass('bg-color');
+                        $(obj).text('禁用');
+                    }
+                    else{
+                        $(obj).addClass('bg-color');
+                        $(obj).text('启用');
+                    }
+                    setTimeout(function () {
+                        location.reload();
+                    },2000);
+                }
+            }
+        })
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+{include file="common/_herder" }
+<body class="body">
+<form class="layui-form" action="" id="form">
+    <div class="layui-form-item">
+        <label class="layui-form-label">站点名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" value="{$item['title']}"  placeholder="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">seo关键字</label>
+        <div class="layui-input-block">
+            <textarea placeholder="请输入内容" name="keywords" class="layui-textarea">{$item['keywords']}</textarea>
+        </div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">网站描述</label>
+        <div class="layui-input-block">
+            <textarea placeholder="请输入内容" name="description" class="layui-textarea">{$item['description']}</textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">公司地址（中文）</label>
+        <div class="layui-input-block">
+            <input type="text" name="addresscn" value="{$item['addresscn']}"  placeholder="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">公司地址（英文）</label>
+        <div class="layui-input-block">
+            <input type="text" name="addressen" value="{$item['addressen']}"  placeholder="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">商城连接</label>
+        <div class="layui-input-block">
+            <input type="text" name="shoplink" value="{$item['shoplink']}"  placeholder="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">联系电话</label>
+        <div class="layui-input-block">
+            <input type="text" name="mobile" value="{$item['mobile']}"  placeholder="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">备案号</label>
+        <div class="layui-input-block">
+            <input type="text" name="icp" value="{$item['icp']}"  placeholder="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">举报电话</label>
+        <div class="layui-input-block">
+            <input type="text" name="tel" value="{$item['tel']}"  placeholder="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">顶部LOGO</label>
+        <div class="layui-input-block">
+            <img src="{$item['toplogo']}" style="width: 100px;height: 100px;margin: 10px 0;border: 1px solid #ccc;cursor: pointer" class="click-img">
+            <input type="file" name="toplogo" placeholder="" accept="image/*" class="layui-input file" style="display: none;">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">底部LOGO</label>
+        <div class="layui-input-block">
+            <img src="{$item['bottomlogo']}" style="width: 100px;height: 100px;margin: 10px 0;border: 1px solid #ccc;cursor: pointer" class="click-img">
+            <input type="file" name="bottomlogo" placeholder="" accept="image/*" class="layui-input file" style="display: none;">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">推广二维码</label>
+        <div class="layui-input-block">
+            <img src="{$item['qrcode']}" style="width: 100px;height: 100px;margin: 10px 0;border: 1px solid #ccc;cursor: pointer" class="click-img">
+            <input type="file" name="qrcode" placeholder="" accept="image/*" class="layui-input file" style="display: none;">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <button class="layui-btn" id="submit-btn" type="button">保存</button>
+        </div>
+    </div>
+</form>
+<script>
+    $(function () {
+        $(".click-img").on('click',function () {
+            $(this).siblings('.layui-input').click();
+        });
+        $(".file").change(function () {
+            var url = window.URL.createObjectURL(this.files[0]);
+            $(this).siblings(".click-img").attr('src',url);
+        });
+        $("#submit-btn").click(function () {
+            $("#form").ajaxSubmit({
+                type:'post',
+                url:"{:url('admin/set/index')}",
+                data:{},
+                dataType:"json",
+                success:function (ret) {
+                    layer.msg(ret.msg);
+                    if (ret.code==1){
+                        setTimeout(function () {
+                            location.reload();
+                        },2000);
+                    }
+                }
+            });
+        })
+    })
+</script>
+</body>
+</html>

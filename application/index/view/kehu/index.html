@@ -1,0 +1,51 @@
+{include file="index/herder" }
+<!-- banner -->
+<div id="focus-banner">
+    <ul id="focus-banner-list">
+        {foreach name="banner" item="d"}
+        <li> <a href="{if empty($d['linkurl'])}javascript:void(0);{else /}{$d['linkurl']}{/if}" class="focus-banner-img"><img src="{$d['thumb']}" alt=""> </a>
+        </li>
+        {/foreach}
+    </ul>
+    <a href="javascript:;" id="next-img" class="focus-handle"></a> <a href="javascript:;" id="prev-img" class="focus-handle"></a>
+    <ul id="focus-bubble">
+    </ul>
+</div>
+<div class="abonement clearfix">
+    <div class="model_list w1200">
+        <div class="munktion clearfix">
+            <div class="modeke">
+                <h3>荣誉客户成功见证</h3>
+            </div>
+            <p>PC端经典客户展示-经典客户</p>
+            <ul>
+                {foreach name="lists" item="d"}
+                {if $d['type']==1}
+                <li>
+                    <a href="javascript:void(0);">
+                        <img src="{$d['thumb']}">
+                    </a>
+                </li>
+                {/if}
+                {/foreach}
+            </ul>
+        </div>
+
+        <div class="codellow clearfix">
+            <p>移动端经典客户展示-经典客户</p>
+            <ul>
+                {foreach name="lists" item="d"}
+                {if $d['type']==1}
+                <li style="background:url(/public/static/web/images/user/phone_wrap.png) center no-repeat;width:16.666%;height:120px;margin:0 auto;">
+                    <a href="javascript:void(0);">
+                        <img src="{$d['thumb']}">
+                    </a>
+                </li>
+                {/if}
+                {/foreach}
+            </ul>
+        </div>
+
+    </div>
+</div>
+{include file="index/footer" }

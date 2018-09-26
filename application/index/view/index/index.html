@@ -1,0 +1,94 @@
+{include file="index/herder" }
+<!-- banner -->
+<div id="focus-banner">
+    <ul id="focus-banner-list">
+        {foreach name="banner" item="d"}
+        <li> <a href="{if empty($d['linkurl'])}javascript:void(0);{else /}{$d['linkurl']}{/if}" class="focus-banner-img"><img src="{$d['thumb']}" alt=""> </a>
+        </li>
+        {/foreach}
+    </ul>
+    <a href="javascript:;" id="next-img" class="focus-handle"></a> <a href="javascript:;" id="prev-img" class="focus-handle"></a>
+    <ul id="focus-bubble">
+    </ul>
+</div>
+<!-- 广告小图标 -->
+<div class="adsMall clearfix">
+    <div class="iconsCenet w1200">
+        <p class="pGG">打造移动智能终端广告传媒</p>
+        <p class="pGG">人人都是广告主</p>
+
+        <div class="cHuangGa clearfix">
+
+            <div class="failed">
+                <img src="/public/static/web/images/index/icxonfont_06.png" style="width:178px;height:136px;">
+                <p class="text_bug">创意和制作</p>
+                <p class="tPcon">提供个性化定制服务</p>
+                <p class="tPcon">多规格的素材，提高广告投放效率和效果</p>
+            </div>
+
+            <div class="failed">
+                <img src="/public/static/web/images/index/icxonfont_08.png" style="width:152px;height:136px;">
+                <p class="text_bug">成本可控</p>
+                <p class="tPcon">用户可以通过多渠道免费获得广告费</p>
+            </div>
+            <div class="failed">
+                <img src="/public/static/web/images/index/icxonfont_03.png" style="width:163px;height:140px;">
+                <p class="text_bug">合理计费模式</p>
+                <p class="tPcon">根据不同于的推广方式，有着合理的计算方式，持续提高广告的效益和产出</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 壹加壹 -->
+<div class="speakas">
+    <div class="welldo w1200">
+        <div class="englist">
+            <p class="yijiayi">移动智能终端广告传媒</p>
+            <p class="yYong">引用移动互联网技术、大数据、云计算、智能终端，打造移动智能终端广告传媒，真正的把各个领域的资源完美的跨界整合，实现投放范围广、精准高、速度快、成本低、监测实的投放效果。投放者可自行通过移动网络在任何时间、任何地点，在线下单完成投放，省去线下中间环节，所有流程仅需一分钟就可以实现广告精准全面的投放。</p>
+        </div>
+    </div>
+</div>
+<!-- 服务优势 -->
+<div class="seRiCe clearfix">
+    <div class="advcace w1200">
+        <div class="agetage">服务优势</div>
+        <div class="andquick">
+            <ul>
+                <li>
+                    <div class="divhideto">
+                        <p class="overnd">方便快捷</p>
+                        <p class="enffle">Convenient and quick</p>
+                    </div>
+                    <img src="/public/static/web/images/index/textend_03.png">
+                    <p class="pcyvi">投放者可自行通过移动网络在任何时间，任何地点，在线下单完成投放，省去线下 中间环节，所有流程仅需一分钟就可以实 现广告精准全</p>
+                </li>
+                <li>
+                    <div class="divhideto">
+                        <p class="overnd">精准高效</p>
+                        <p class="enffle">Precision and efficiency</p>
+                    </div>
+                    <img src="/public/static/web/images/index/textend_05.png">
+                    <p class="pcyvi">投放者可通过平台自行选择，时间段、行业、地域等多重属性发布广告资源，控制 广告投放的精准度，精准捕捉潜在客户。  还可使投放</p>
+                </li>
+                <li>
+                    <div class="divhideto">
+                        <p class="overnd">公益服务</p>
+                        <p class="enffle">Convenient and quick</p>
+                    </div>
+                    <img src="/public/static/web/images/index/textend_07.png">
+                    <p class="pcyvi">免费提供救助灾害、救济贫困、扶助残疾人等困难的社会群体和人口丢失等公益广 告插播，服务社会。</p>
+                </li>
+                <li>
+                    <div class="divhideto">
+                        <p class="overnd">全面投放</p>
+                        <p class="enffle">Precision and efficiency</p>
+                    </div>
+                    <img src="/public/static/web/images/index/textend_09.png">
+                    <p class="pcyvi">陆续覆盖北京、上海、广州、深圳、天津、成都、武汉等全国48个重点城市核心商圈、 医院、学校、办公楼、小区等高人群场所。 </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- 主体 end -->
+{include file="index/footer" }

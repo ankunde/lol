@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/public/static/admin/js/jquery-1.12.4.js"></script><!--script标签要用-->
+    <script type="text/javascript" src="/public/static/admin/js/jquery.form.js"></script><!--表单事件要用-->
+</head>
+<body>
+<div id="div1">
+    <form id="form1" method="get" action="#">
+        <p>
+            <label>
+                姓名：
+            <input type="text" name="name"/>
+            </label>
+        </p>
+        <p>
+            <label>
+                年龄：
+
+            <input type="number" name="age" />
+            </label>
+        </p>
+        <p>
+                国家：
+            <label>
+            <input type="checkbox" name="country" value="1" />蜀国
+            </label>
+            <label>
+            <input type="checkbox" name="country" value="2" />魏国
+            </label>
+            <label>
+            <input type="checkbox" name="country" value="3" />吴国
+            </label>
+        </p>
+        <!--<p><input type="submit" value="确认" /></p>-->
+        <p><button type="button">确认</button></p>
+    </form>
+</div>
+<div id="div2"></div>
+<script>
+    $(function () {
+        $(":button").click(function () {
+            $("#form1").ajaxSubmit({
+                type:"post",
+                data:{},
+                dataType:"json",
+                url: "{:url('admin/aa/love1')}",
+                success: function (data) {
+                    if(data.code==1){
+                        console.debug(data.msg[1])
+                    }
+                }
+            });
+        })
+    })
+</script>
+</body>
+</html>

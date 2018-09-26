@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/public/static/admin/js/jquery-1.12.4.js"></script><!--script标签要用-->
+    <script type="text/javascript" src="/public/static/admin/js/jquery.form.js"></script><!--表单事件要用-->
+</head>
+<body>
+<form action="" id="myForm">
+    <button type="submit" id="output1">喜欢你</button>
+</form>
+<form action="" id="myForm2">
+    <button type="submit" id="output2">喜欢你</button>
+</form>
+
+<script>
+    $(function () {
+        $('#myForm').ajaxForm(function() {
+
+            $('#output1').html("提交成功！欢迎下次再来！").show();
+        });
+
+        $('#myForm2').submit(function() {
+            $(this).ajaxSubmit(function() {
+                $('#output2').html("提交成功！欢迎下次再来！").show();
+            });
+            return false; //阻止表单默认提交
+        });
+    })
+</script>
+</body>
+</html>

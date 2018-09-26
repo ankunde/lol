@@ -1,0 +1,38 @@
+{include file="common/_herder" }
+<body>
+<form action="" id="form">
+    姓名:<input type="text" name="name"><br><br>
+    密码:<input type="password" name="pwd"><br><br>
+    上传图片<input style="display: none;" type="file" name="logo" class="file" multiple>
+    <img src="/public/uploads/thumb/20180920/1a6dddda844ef789494d7c2a61f607b3.png" alt="" class="click-img">
+    <br><br>
+    <button type="button" id="submit-btn">提交</button>
+</form>
+<script>
+    $(function () {
+        $(".click-img").on('click',function () {
+            $(this).siblings('.file').click();
+        });
+        $(".file").change(function () {
+            var url = window.URL.createObjectURL(this.files[0]);
+            $(this).siblings(".click-img").attr('src',url);
+        });
+        $("#submit-btn").click(function () {
+            $("#form").ajaxSubmit({
+                type:'post',
+                url:"{:url('admin/aa/index')}",
+                data:{},
+                dataType:"json",
+                success:function (ret) {
+                    layer.msg(ret.msg);
+                    if (ret.code==1){
+                        setTimeout(function () {
+                            location.reload();
+                        },2000);
+                    }
+                }
+            });
+        })
+    })
+</script>
+</body>

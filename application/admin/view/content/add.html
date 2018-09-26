@@ -1,0 +1,67 @@
+{include file="common/_herder" }
+<body class="body">
+<form class="layui-form" action="" id="form">
+    <input type="hidden" name="id" value="{$item['id']}">
+    <div class="layui-form-item">
+        <label class="layui-form-label">标题</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" value="{$item['title']}"  placeholder="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">描述</label>
+        <div class="layui-input-block">
+            <textarea placeholder="请输入内容" name="miss" class="layui-textarea">{$item['miss']}</textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">图标</label>
+        <div class="layui-input-block">
+            <img src="{$item['thumb']}" style="width: 100px;height: 100px;margin: 10px 0;border: 1px solid #ccc;cursor: pointer" class="click-img">
+            <input type="file" name="thumb" placeholder="" accept="image/*" class="layui-input file" style="display: none;">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">首条展示</label>
+        <div class="layui-input-block" style="line-height: 40px">
+            <input type="radio" name="type" value="1" {if $item['type']==1}checked{/if}>是
+            <input type="radio" name="type" value="0" {if $item['type']==0}checked{/if}>否
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <button class="layui-btn" id="submit-btn" type="button">保存</button>
+        </div>
+    </div>
+</form>
+<script>
+    $(function () {
+        $('.layui-form input[type=radio]').show();
+        $(".click-img").on('click',function () {
+            $(this).siblings('.layui-input').click();
+        });
+        $(".file").change(function () {
+            var url = window.URL.createObjectURL(this.files[0]);
+            $(this).siblings(".click-img").attr('src',url);
+        });
+        $("#submit-btn").click(function () {
+            $("#form").ajaxSubmit({
+                type:'post',
+                url:"{:url('admin/content/add')}",
+                data:{},
+                dataType:"json",
+                success:function (ret) {
+                    layer.msg(ret.msg);
+                    if (ret.code==1){
+                        setTimeout(function () {
+                            window.location.href = "{:url('admin/content/index')}";
+                        },2000);
+                    }
+                }
+            });
+        })
+    })
+</script>
+</body>
+</html>
