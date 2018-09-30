@@ -8,51 +8,41 @@
 </head>
 <body>
 <div id="div1">
-    <form id="form1" method="get" action="#">
-        <p>
-            <label>
-                姓名：
-            <input type="text" name="name"/>
-            </label>
-        </p>
-        <p>
-            <label>
-                年龄：
+    <form id="form1">
+        姓名:<input name="name" id="name" class="specialFields"><br>
+        年龄:<input name="age" id="age" type="number" class="specialFields"><br>
+        地址:<input name="address" id="address"><br>
+        兴趣:<p>
+        h1:<input type="checkbox" name="hobby" value="h1" checked="checked">
+        h2:<input type="checkbox" name="hobby" value="h2">
+        h3:<input type="checkbox" name="hobby" value="h3">
+        h4:<input type="checkbox" name="hobby" value="h4">
+    </p>
+        性别:
+        男:<input type="radio" name="sexuality" value="man" checked="checked"><br>
+        女:<input type="radio" name="sexuality" value="girl"><br>
+        <input type="submit" value="submit1" id="sub1">
+        <input type="submit" value="submit2" id="sub2">
 
-            <input type="number" name="age" />
-            </label>
-        </p>
-        <p>
-                国家：
-            <label>
-            <input type="checkbox" name="country" value="1" />蜀国
-            </label>
-            <label>
-            <input type="checkbox" name="country" value="2" />魏国
-            </label>
-            <label>
-            <input type="checkbox" name="country" value="3" />吴国
-            </label>
-        </p>
-        <!--<p><input type="submit" value="确认" /></p>-->
-        <p><button type="button">确认</button></p>
+        <div id="p1">p</div>
     </form>
 </div>
 <div id="div2"></div>
 <script>
     $(function () {
-        $(":button").click(function () {
-            $("#form1").ajaxSubmit({
-                type:"post",
-                data:{},
-                dataType:"json",
-                url: "{:url('admin/aa/love1')}",
-                success: function (data) {
-                    if(data.code==1){
-                        console.debug(data.msg[1])
-                    }
-                }
-            });
+        var options = {
+            url: "{:url('admin/aa/love1')}", //提交地址：默认是form的action,如果申明,则会覆盖
+            type: "post",   //默认是form的method（get or post），如果申明，则会覆盖
+            beforeSubmit: beforeCheck, //提交前的回调函数
+            success: successfun,  //提交成功后的回调函数
+            target: "#output",  //把服务器返回的内容放入id为output的元素中
+            dataType: "json", //html(默认), xml, script, json...接受服务端返回的类型
+            clearForm: true,  //成功提交后，是否清除所有表单元素的值
+            resetForm: true,  //成功提交后，是否重置所有表单元素的值
+            timeout: 3000     //限制请求的时间，当请求大于3秒后，跳出请求
+        };
+        $("#form1").submit(function () {
+            $('#form1').ajaxForm(options)
         })
     })
 </script>

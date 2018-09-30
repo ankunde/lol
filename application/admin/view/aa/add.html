@@ -14,8 +14,9 @@
             $(this).siblings('.file').click();
         });
         $(".file").change(function () {
-            var url = window.URL.createObjectURL(this.files[0]);
-            $(this).siblings(".click-img").attr('src',url);
+            // $(this)[0].files
+                var url = window.URL.createObjectURL(this.files[0]);
+                $(this).siblings(".click-img").attr('src',url);
         });
         $("#submit-btn").click(function () {
             $("#form").ajaxSubmit({
