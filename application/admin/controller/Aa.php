@@ -116,4 +116,11 @@ class Aa extends Controller
     {
         return view();
     }
+    /**
+     * 购物车信息存cookie
+     */
+    public function cookie(){
+        $cookie = new \app\admin\model\Aa();
+        $cookie->countprice();
+    }
 }
